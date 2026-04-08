@@ -14,7 +14,8 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 //import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
 //import TwitterIcon from '../components/Icon/TwitterIcon';
 import heroImage from '../images/header3.jpg';
-import profilepic from '../images/Klenk_Joshua.jpg';
+//import profilepic from '../images/Klenk_Joshua.jpg';
+import profilepic from '../images/KlenkJoshua.jpg';
 /*
 import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
