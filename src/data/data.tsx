@@ -1,9 +1,10 @@
 import {
   AcademicCapIcon,
   ArrowDownTrayIcon,
+  BeakerIcon,
   //BuildingOffice2Icon,
   //CalendarIcon,
-  FlagIcon,
+  //FlagIcon,
   MapIcon,
   SparklesIcon,
 } from '@heroicons/react/24/outline';
@@ -14,31 +15,20 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 //import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
 //import TwitterIcon from '../components/Icon/TwitterIcon';
 import heroImage from '../images/header3.jpg';
-//import profilepic from '../images/Klenk_Joshua.jpg';
 import profilepic from '../images/KlenkJoshua.jpg';
-/*
-import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
-import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
-import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
-import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
-import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
-import porfolioImage12 from '../images/portfolio/portfolio-12.png';
-*/
 import porfolioImage14 from '../images/portfolio/portfolio-14.png';
 import porfolioImage16 from '../images/portfolio/portfolio-16.png';
-import porfolioImage18 from '../images/portfolio/portfolio-18.png';
 import porfolioImage20 from '../images/portfolio/portfolio-20.png';
-import testimonialImage from '../images/testimonial.webp';
+import haploscopeOverview1 from '../images/research/haploscope-overview-1.jpg';
+import haploscopeOverview2 from '../images/research/haploscope-overview-2.jpg';
+import haploscopeUnity from '../images/research/haploscope-unity.jpg';
+import lensView1 from '../images/research/lens-view-1.jpg';
+import lensView2 from '../images/research/lens-view-2.jpg';
 import {
   About,
   ContactSection,
   ContactType,
+  FeaturedResearch,
   Hero,
   HomepageMeta,
   PortfolioItem,
@@ -52,8 +42,9 @@ import {
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Joshua Klenk - Developer Portfolio.',
-  description: "I’m a software developer focusing on gameplay programming, AR experimentation, and interactive systems. I’m currently working toward my B.S. in Computer Science at FDU (GPA 3.6).",
+  title: 'Joshua Klenk — Developer Portfolio',
+  description:
+    'Computer Science senior at Fairleigh Dickinson University. Co-developer of a custom AR haploscope entering human subjects trials. Projects in Unity, Unreal, and C++.',
 };
 
 /**
@@ -67,7 +58,6 @@ export const SectionId = {
   Resume: 'resume',
   Skills: 'skills',
   Stats: 'stats',
-  Testimonials: 'testimonials',
 } as const;
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
@@ -77,19 +67,20 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Joshua Klenk`,
+  name: `Hi, I'm Joshua Klenk`,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-      I’m a <strong className="text-stone-100">software developer</strong> focusing on
+         a <strong className="text-stone-100">computer science student</strong> focusing on
         <strong className="text-stone-100"> gameplay programming</strong>,
-        <strong className="text-stone-100"> AR experiments</strong>, and <strong className="text-stone-100">interactive systems</strong>. I’m currently working toward my
-        <strong className="text-stone-100"> B.S. in Computer Science at FDU</strong> (GPA 3.6).
+        <strong className="text-stone-100"> AR experiments</strong>, and{' '}
+        <strong className="text-stone-100">interactive systems</strong>. I'm currently working toward my
+        <strong className="text-stone-100"> B.S. in Computer Science at Fairleigh Dickinson University</strong>.
       </p>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        Recently I’ve been working in <strong className="text-stone-100">Unity</strong>, <strong className="text-stone-100">Unreal Engine</strong>, and on an
-        <strong className="text-stone-100"> AR project I’m adapting from OpenGL into Unity</strong>.
-      </p>
+        Recently I've been working in <strong className="text-stone-100">Unity</strong> for an {' '}
+        <strong className="text-stone-100">AR haploscope I'm helping build for a near-field depth perception study</strong>.
+</p>
     </>
   ),
   actions: [
@@ -112,127 +103,193 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `I’m a developer who spends most of my time building things in Unity and Unreal. 
-  I like troubleshooting technical problems, experimenting with AR/VR, and making systems that feel good to use.
-
-  Outside of that, I’m usually learning something new, working on converting my school bus into a camper, or playing guitar.`,
-
+  description: `I like to spend most of my time building things through code, hardware, or whatever the project calls for. 
+                I enjoy troubleshooting technical problems, experimenting with AR/VR, and making systems that feel good to use.`,
   aboutItems: [
-    {label: 'Location', text: 'New Jersey, USA', Icon: MapIcon},
-    {label: 'Education', text: 'B.S Computer Science Fairleigh Dickinson University (In Progress)', Icon: AcademicCapIcon},
-    {label: 'GPA', text: '3.6', Icon: FlagIcon},
-    {label: 'Interests', text: 'Game development, AR, VR, 3D modeling, guitar', Icon: SparklesIcon},
+    {label: 'Location', text: 'Lebanon, NJ', Icon: MapIcon},
+    {label: 'Education', text: 'B.S. Computer Science — FDU (Expected May 2026)', Icon: AcademicCapIcon},
+    {label: 'Research', text: 'AR Haploscope — Near-Field Depth Perception', Icon: BeakerIcon},
+    {label: 'Interests', text: 'Game development, AR/VR, 3D printing, hardware tinkering, guitar', Icon: SparklesIcon},
   ],
 };
 
 /**
- * Skills section
+ * Skills section — mirrors resume categories
  */
 export const skills: SkillGroup[] = [
   {
-    name: 'Programming Languages',
+    name: 'Languages',
     skills: [
       {name: 'C#', level: 8},
-      {name: 'C++', level: 6},
-      {name: 'Python', level: 4},
+      {name: 'C++', level: 7},
+      {name: 'Python', level: 6},
+      {name: 'SQL', level: 5},
     ],
   },
   {
-    name: 'Game Development',
+    name: 'Simulation & XR',
     skills: [
-      {name: 'Unity (C#)', level: 8},
-      {name: 'Unreal Engine (Blueprints)', level: 5},
-      {name: 'Gameplay Systems / AI / Animation Controllers', level: 7},
+      {name: 'Unity (C#, New Input System)', level: 8},
+      {name: 'Unreal Engine', level: 6},
+      {name: 'OpenCV', level: 6},
+      {name: 'AR/VR Development', level: 7},
     ],
   },
   {
-    name: '3D & Technical Art',
+    name: '3D & Visualization',
     skills: [
-      {name: 'Blender', level: 6},
-      {name: 'Maya', level: 5},
-      {name: 'Fusion 360 / 3D Printing Design', level: 7},
+      {name: 'Blender', level: 7},
+      {name: 'Shapr3D', level: 7},
+      {name: 'Autodesk', level: 6},
+      {name: 'Substance Painter', level: 6},
+      {name: 'FBX Pipeline', level: 7},
     ],
   },
   {
-    name: 'XR (VR / AR)',
+    name: 'Tools & Practices',
     skills: [
-      {name: 'Unity VR (Quest 2, XR Interaction Toolkit)', level: 5},
-      {name: 'VR UI / Ray Interaction / Grab Systems', level: 4},
-    ],
-  },
-  {
-    name: 'Tools & Workflow',
-    skills: [
-      {name: 'Git + GitHub', level: 7},
-      {name: 'Agile / Scrum', level: 6},
-      {name: 'Visual Studio / VS Code', level: 8},
+      {name: 'Git / GitHub', level: 8},
+      {name: 'Agile / Scrum', level: 7},
+      {name: 'Jira', level: 7},
+      {name: 'SOLID / OOP Design', level: 7},
+      {name: 'Doxygen', level: 7},
+      {name: 'Linux', level: 6},
     ],
   },
 ];
+
+/**
+ * Featured Research — AR Haploscope
+ * Rendered at the top of the Portfolio section via <FeaturedResearch />
+ */
+export const featuredResearch: FeaturedResearch = {
+  title: 'AR Haploscope — Near-Field Depth Perception',
+  subtitle: 'Collaborative research at the FDU AR/VR Lab',
+  status: 'Hardware iteration phase — preparing for human subjects trials',
+  description: (
+    <>
+      <p>
+        Co-developing a custom tabletop AR display using collimated and diopter lenses to study
+        vergence–accommodation conflict and depth judgment accuracy. The work targets problems directly applicable to
+        AR-assisted surgery and precision industrial systems.
+      </p>
+      <p>
+        I engineered the Unity rendering pipeline for stereoscopic stimulus presentation, and built calibration and
+        stimuli-alignment tooling in Python with OpenCV. The experimental protocol — measuring depth judgment of
+        occluded virtual objects against real-world targets.
+      </p>
+    </>
+  ),
+media: [
+  {type: 'image', src: haploscopeOverview1, alt: 'Haploscope hardware on the optical bench'},
+  {type: 'image', src: haploscopeUnity, alt: 'Unity stereoscopic rendering pipeline — left and right eye displays'},
+  {type: 'image', src: lensView1, alt: 'Close-up of the collimated lens assembly with stimulus visible'},
+  {type: 'video', src: '/research/stimuli-detection.mp4', poster: lensView1, alt: 'Stimulus detection demonstration'},
+  {type: 'image', src: haploscopeOverview2, alt: 'Reverse angle of the haploscope setup'},
+  {type: 'image', src: lensView2, alt: 'Front-on view of the stimulus through the beam splitter'},
+],
+  links: [
+    {
+      text: 'View research code',
+      href: 'https://github.com/ARVRLab/AR-Depth_Perception_Study_UNITY',
+      primary: true,
+    },
+    {text: 'FDU AR/VR Lab', href: 'https://github.com/ARVRLab'},
+  ],
+  autoAdvanceMs: 5000,
+};
 
 /**
  * Portfolio section
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Stranded - Third Person Zombie Survival',
-    description: 'Player controller, Cinemachine camera, animation state machine, and NavMesh enemy AI; core shooting loop in a flooded environment.',
-    url: '#', //TODO
-    image: porfolioImage14,
-  },
-  {
-    title: 'Environment & Asset Showcase (Unreal + 3ds Max)',
-    description: 'Unreal scene lit with Lumen, Sequencer cinematics, and a PBR sword model created in 3ds Max and imported for real-time rendering.',
-    url: 'https://youtu.be/tNecUQNlCKk',
-    image: porfolioImage16,
-  },
-  {
-    title: 'AR Research — OpenGL → Unity Conversion (FDU)',
-    description: 'Ported projection math and rendering alignment to Unity AR Foundation to replicate an OpenGL depth-perception experiment. (In Progress)',
-    url: '#', //TODO
-    image: porfolioImage18,
-  },
-  {
-    title: 'Text Adventure Engine (C++)',
-    description: 'Custom command parser (Verb/Noun, CommandWord/Parser), room navigation, and item handling using modular header/source files. (In Progress)',
+    title: 'BB-TextAdventure',
+    subtitle: 'C++ · Agile',
+    description:
+      'Scrum Master for a 5-person team. SOLID architecture, Command-pattern input dispatch, 175+ commits, full Doxygen coverage.',
     url: 'https://github.com/Boyardee-Bois/BB-TextAdventure',
     image: porfolioImage20,
+    tags: ['C++', 'SOLID', 'Agile', 'Doxygen'],
+  },
+  {
+    title: 'Stranded',
+    subtitle: 'Unity · Solo',
+    description:
+      'Third-person zombie survival in Unity: player controller with Cinemachine, animation state machine, NavMesh enemy AI, and core shooting loop.',
+    url: '#',
+    image: porfolioImage14,
+    tags: ['Unity', 'C#', 'NavMesh', 'Cinemachine'],
+  },
+  {
+    title: 'Environment Showcase',
+    subtitle: 'Unreal · 3ds Max',
+    description:
+      'Lumen-lit Unreal environment with Sequencer cinematics and a PBR sword modeled in 3ds Max and brought in through the FBX pipeline.',
+    url: 'https://youtu.be/tNecUQNlCKk',
+    image: porfolioImage16,
+    tags: ['Unreal', 'Lumen', '3ds Max', 'PBR'],
   },
 ];
 
 /**
- * Resume section -- TODO: Standardize resume contact format or offer MDX
+ * Resume section
  */
 export const education: TimelineItem[] = [
   {
     date: 'Expected May 2026',
-    location: 'Fairleigh Dickinson University',
-    title: 'B.S. Computer Science',
-    content: <p>Coursework includes game development, operating systems, software engineering, AR/VR concepts, 
-        and 3D modeling/animation.</p>,
+    location: 'Fairleigh Dickinson University — Florham Park, NJ',
+    title: 'B.S. Computer Science — GPA 3.6, Honors List',
+    content: (
+      <p>
+        Relevant coursework: Software Engineering, Computer Architecture, Operating Systems, Data Structures &
+        Algorithms, Database Development, AR/VR, 3D Game Creation, Linear Algebra, Physics II.
+      </p>
+    ),
+  },
+  {
+    date: '2018 – 2023',
+    location: 'Raritan Valley Community College — Branchburg, NJ',
+    title: 'A.S. Information Technology — GPA 3.55, Dean\u2019s List',
+    content: <p>Foundations in programming, systems, and networking.</p>,
   },
 ];
 
+/*
 export const experience: TimelineItem[] = [
   {
-    date: '2024 – Present',
-    location: 'Personal Project',
-    title: 'Unity Developer – Stranded (3rd-Person Zombie Game)',
+    date: 'In Progress',
+    location: 'FDU AR/VR Lab — Research',
+    title: 'Co-Developer — AR Haploscope, Depth Perception Study',
     content: (
       <p>
-        Developing a third-person survival game in Unity using C#. Built player movement, 
-        camera systems, animation state machines, and basic enemy AI using NavMesh.
+        Built Unity stereoscopic rendering pipeline and Python/OpenCV calibration tools for a custom tabletop AR
+        display studying near-field depth perception. Designed IRB-compliant experimental protocols; human subjects
+        testing phase beginning within two weeks.
+      </p>
+    ),
+  },
+  {
+    date: 'Fall 2025',
+    location: 'BB-TextAdventure — Team Project',
+    title: 'Scrum Master & Engine Developer (C++)',
+    content: (
+      <p>
+        Led a 5-person team over one semester (175+ commits). Facilitated 3x/week standups, managed the Jira backlog,
+        and ran sprint planning and retrospectives. Architected a SOLID-compliant engine with a hash-map-driven
+        Command pattern for input dispatch and a coordinate-keyed level loading system. Enforced Doxygen and coding
+        standards across the codebase.
       </p>
     ),
   },
   {
     date: '2024 – Present',
-    location: 'Senior Project (FDU)',
-    title: 'AR Research Project – OpenGL to Unity Conversion',
+    location: 'Personal Project',
+    title: 'Stranded — Unity Gameplay Developer',
     content: (
       <p>
-        Adapting an OpenGL-based AR depth perception experiment into Unity with C# and AR Foundation. 
-        Focused on camera projection math, rendering alignment, and replicating research behavior in a modern engine.
+        Solo-developed a third-person zombie survival game in Unity: player movement, Cinemachine camera, animation
+        state machines, NavMesh AI, and the core shooting loop.
       </p>
     ),
   },
@@ -242,45 +299,21 @@ export const experience: TimelineItem[] = [
     title: 'Environment & Asset Showcase',
     content: (
       <p>
-        Created a small Unreal Engine environment and a 3D sword model using 3ds Max. 
-        Used Lumen lighting, Sequencer for cinematic shots, and applied PBR materials for a final rendered scene.
-      </p>
-    ),
-  },
-  {
-    date: '2024 – Present',
-    location: 'C++ Console Project',
-    title: 'Text Adventure Engine (In Progress)',
-    content: (
-      <p>
-        Building a text-based adventure game engine in C++ with a custom command parser, 
-        room navigation system, item handling, and modular header/source file architecture.
+        Built a small Unreal environment using Lumen lighting and Sequencer cinematics, featuring a PBR sword modeled
+        in 3ds Max and imported through a standard FBX pipeline.
       </p>
     ),
   },
 ];
-
-/**
- * Testimonial section
- */
-export const testimonial: TestimonialSection = {
-  imageSrc: testimonialImage,
-  testimonials: [
-    {
-      name: 'Development Approach',
-      text: 'I value clean, maintainable code, thoughtful design, and steady progress toward a working product.',
-      //image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
-    },
-  ],
-};
+*/
 
 /**
  * Contact section
  */
-
 export const contact: ContactSection = {
   headerText: 'Get in touch.',
-  description: 'I’m open to connecting about anything related to computer science, programming, or technology; whether it’s projects, ideas, or collaboration opportunities.',
+  description:
+    'I\u2019m open to connecting about research, game engine work, AR/VR, or collaboration on technical projects.',
   items: [
     {
       type: ContactType.Email,
@@ -289,16 +322,9 @@ export const contact: ContactSection = {
     },
     {
       type: ContactType.Location,
-      text: 'New Jersey, U.S.A',
+      text: 'Lebanon, NJ, U.S.A',
       href: 'https://maps.app.goo.gl/K5VJ3RgWmbachH3B6',
     },
-    /*
-    {
-      type: ContactType.Instagram,
-      text: '@tbakerx',
-      href: 'https://www.instagram.com/tbakerx/',
-    },
-    */
     {
       type: ContactType.Github,
       text: 'j-klenk',
@@ -312,8 +338,5 @@ export const contact: ContactSection = {
  */
 export const socialLinks: Social[] = [
   {label: 'Github', Icon: GithubIcon, href: 'https://github.com/j-klenk'},
-  //{label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/8553186/tim-baker'},
-  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/josh-klenk/'},
-  //{label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/reactresume/'},
-  //{label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/TimBakerx'},
+  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/j-klenk/'},
 ];

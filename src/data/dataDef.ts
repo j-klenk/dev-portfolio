@@ -74,6 +74,29 @@ export interface SkillGroup {
 }
 
 /**
+ * Featured Research section
+ */
+export type ResearchMediaItem =
+  | {type: 'image'; src: StaticImageData | string; alt: string}
+  | {type: 'video'; src: string; poster?: StaticImageData | string; alt: string};
+
+export interface FeaturedResearch {
+  title: string;
+  subtitle: string;
+  status: string;
+  description: JSX.Element;
+  media: ResearchMediaItem[];
+  links: ResearchLink[];
+  autoAdvanceMs?: number;
+}
+
+export interface ResearchLink {
+  text: string;
+  href: string;
+  primary?: boolean;
+}
+
+/**
  * Portfolio section
  */
 export interface PortfolioItem {
@@ -81,6 +104,8 @@ export interface PortfolioItem {
   description: string;
   url: string;
   image: string | StaticImageData;
+  tags?: string[];
+  subtitle?: string;
 }
 
 /**
