@@ -34,7 +34,6 @@ import {
   PortfolioItem,
   SkillGroup,
   Social,
-  TestimonialSection,
   TimelineItem,
 } from './dataDef';
 
@@ -317,8 +316,8 @@ export const contact: ContactSection = {
   items: [
     {
       type: ContactType.Email,
-      text: 'joshklenk@outlook.com',
-      href: 'mailto:joshklenk@outlook.com',
+      text: 'j-klenk@outlook.com',
+      href: 'mailto:j-klenk@outlook.com',
     },
     {
       type: ContactType.Location,
