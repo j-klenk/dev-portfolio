@@ -40,14 +40,14 @@ import {
 export const homePageMeta: HomepageMeta = {
   title: 'Joshua Klenk — Developer Portfolio',
   description:
-    'Computer Science senior at Fairleigh Dickinson University. Co-developing a custom AR haploscope entering human subjects trials. Projects in Unity, Unreal, and C++.',
+  'Computer Science senior at Fairleigh Dickinson University. Co-developing a custom AR haploscope for near-field depth perception research. Projects in Unity, Unreal, and C++.',
   ogImageUrl: 'https://joshklenk.xyz/og-image.jpg',
   twitterCardType: 'summary_large',
   twitterDomain: 'joshklenk.xyz',
   twitterUrl: 'https://joshklenk.xyz',
   twitterTitle: 'Joshua Klenk — Developer Portfolio',
   twitterDescription:
-    'Computer Science senior at FDU. Co-developer of a custom AR haploscope for near-field depth perception research.',
+  'Computer Science senior at FDU. Co-developer of a custom AR haploscope for near-field depth perception research.',
   twitterImageUrl: 'https://joshklenk.xyz/og-image.jpg',
 };
 
