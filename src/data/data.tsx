@@ -150,16 +150,25 @@ export const skills: SkillGroup[] = [
     ],
   },
   {
-    name: 'Tools & Practices',
-    skills: [
-      {name: 'Git / GitHub', level: 8},
-      {name: 'Agile / Scrum', level: 7},
-      {name: 'Jira', level: 7},
-      {name: 'SOLID / OOP Design', level: 7},
-      {name: 'Doxygen', level: 7},
-      {name: 'Linux', level: 6},
-    ],
-  },
+  name: 'Tools & Practices',
+  skills: [
+    {name: 'Git / GitHub', level: 7},
+    {name: 'Agile / Scrum', level: 6},
+    {name: 'Jira', level: 7},
+    {name: 'Doxygen', level: 6},
+    {name: 'SonarQube', level: 5},
+    {name: 'Linux', level: 5},
+  ],
+},
+{
+  name: 'Software Engineering',
+  skills: [
+    {name: 'SOLID / OOP Design', level: 6},
+    {name: 'Design Patterns', level: 6},
+    {name: 'TDD / BDD', level: 5},
+    {name: 'UML', level: 5},
+  ],
+},
 ];
 
 /**
@@ -169,7 +178,7 @@ export const skills: SkillGroup[] = [
 export const featuredResearch: FeaturedResearch = {
   title: 'AR Haploscope — Near-Field Depth Perception',
   subtitle: 'Collaborative research at the FDU AR/VR Lab',
-  status: 'Hardware iteration phase — preparing for human subjects trials',
+  status: 'Hardware iteration phase — experimental protocol in development',
   description: (
     <>
       <p>
@@ -179,8 +188,12 @@ export const featuredResearch: FeaturedResearch = {
       </p>
       <p>
         I engineered the Unity rendering pipeline for stereoscopic stimulus presentation, and built calibration and
-        stimuli-alignment tooling in Python with OpenCV. The experimental protocol — measuring depth judgment of
+        stimuli-alignment tooling in Python with OpenCV. The experimental protocol measures depth judgment of
         occluded virtual objects against real-world targets.
+      </p>
+      <p>
+        3D modeled and printed custom hardware components, including stimuli mounts, lens holders, motor housings,
+        and threaded attachments using Blender and Fusion 360 for the optical assembly.
       </p>
     </>
   ),
@@ -247,7 +260,7 @@ export const education: TimelineItem[] = [
     content: (
       <p>
         Relevant coursework: Software Engineering, Computer Architecture, Operating Systems, Data Structures &
-        Algorithms, Database Development, AR/VR, 3D Game Creation, Linear Algebra, Physics II.
+        Algorithms, Linear Algebra, Discrete Mathematics, Physics II.
       </p>
     ),
   },
@@ -255,7 +268,7 @@ export const education: TimelineItem[] = [
     date: '2018 – 2023',
     location: 'Raritan Valley Community College — Branchburg, NJ',
     title: 'A.S. Information Technology — GPA 3.55, Dean\u2019s List',
-    content: <p>Foundations in programming, systems, and networking.</p>,
+    content: <p>Relevant coursework: Networking, Hardware Fundamentals, System Design, Database Development, Statistics.</p>,
   },
 ];
 
